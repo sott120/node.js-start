@@ -1,52 +1,19 @@
 const express =require("express");
+const { engine } = require("express/lib/application");
 const app = express();
 const port = 3000;
 
+const homes =require('./routes/route.js');
+app.use('/', homes); //미들웨어 등록
 
-// const mySub1 = `
-
-// `;
-
-// const mySub2 = `
-
-// `;
+app.set('views', __dirname + "/views");
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
 
 
-//route, routing 파일과 경로를 지정
-app.get("/", (req,res) => {
-var list = '';
-for(var i = 0; i < 5; i++){
-    list = list + "<li>nav</li>";
-};
 
+// app.listen(port, () => {
+//     console.log(`express 실행 ${port}`)
+// })
 
-const myIndex =`
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>index</title>
-    </head>
-    <body>
-        <h1>index page</h1>
-        <ul>
-            ${list}
-        </ul>
-    </body>
-</html>
-`;
-
-    res.send(myIndex); 
-})
-
-app.get("/sub1", (req,res) => {
-    res.send("sub1"); 
-})
-
-app.get("/sub2", (req,res) => {
-    res.send("sub2"); 
-})
-
-
-app.listen(port, () => {
-    console.log(`express 실행 ${port}`)
-})
+module.exports = app;
