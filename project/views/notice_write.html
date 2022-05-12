@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/reset.css" />
+        <link rel="stylesheet" href="../css/common.css" />
+        <link rel="stylesheet" href="../css/notice_write.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <header>
+            <div class="inner">
+                <h1 class="logo"><a href="main"></a></h1>
+                <nav class="dis_none1000">
+                    <ul class="navi">
+                        <li><a href="intro">야시장소개</a></li>
+                        <!--routs의 .get("/sub1",어쩌구랑 맞춰주면 하위경로 이름 변경됨 -->
+                        <li><a href="food">먹거리살거리</a></li>
+                        <li><a href="">서문거리예술문화</a></li>
+                        <li><a href="notice">참여마당</a></li>
+                        <li><a href="">입점신청</a></li>
+                    </ul>
+                </nav>
+                <div class="login dis_none1000">
+                    <a href="login">로그인</a>
+                </div>
+                <div class="ham dis_block1000">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section>
+                <h2>공지사항 작성하기</h2>
+                <form action="">
+                    <table>
+                        <tr>
+                            <td><label>제목 :</label></td>
+                            <td><input type="text" id="noti_title" /></td>
+                        </tr>
+                        <tr>
+                            <td><label>이름 :</label></td>
+                            <td><input type="text" id="noti_name" /></td>
+                        </tr>
+                        <tr>
+                            <td><label>비밀번호 :</label></td>
+                            <td><input type="password" id="noti_pass" /></td>
+                        </tr>
+                        <tr>
+                            <td><label>날짜 :</label></td>
+                            <td>
+                                <input
+                                    type="text"
+                                    id="noti_date_1"
+                                    placeholder="YYYY"
+                                />년
+                                <select name="" id="noti_date_2">
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                    <option value="">5</option>
+                                    <option value="">6</option>
+                                    <option value="">7</option>
+                                    <option value="">8</option>
+                                    <option value="">9</option>
+                                    <option value="">10</option>
+                                    <option value="">11</option>
+                                    <option value="">12</option></select
+                                >월
+                                <input
+                                    type="text"
+                                    id="noti_date_3"
+                                    placeholder="DD"
+                                />일
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>내용작성 :</td>
+                            <td>
+                                <textarea
+                                    cols="100"
+                                    rows="10"
+                                    id="noti_cont"
+                                ></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>첨부파일 :</td>
+                            <td>
+                                <input
+                                    type="button"
+                                    id="noti_file"
+                                    value="첨부"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="button" value="저장" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <div>
+                <div class="f_list">
+                    <div>
+                        <ul>
+                            <li><a href="">개인정보처리방침</a></li>
+                            <li><a href="">이메일무단수집거부</a></li>
+                        </ul>
+                        <span class="dis_none">FAMILY SITE</span>
+                    </div>
+                </div>
+                <div class="f_cont">
+                    <div class="f_logo">
+                        <h2>
+                            <a href=""
+                                ><img src="../img/noimg_big2.png" alt=""
+                            /></a>
+                        </h2>
+                    </div>
+                    <div class="f_txt">
+                        <p>
+                            대구 남구 대명로 215 대구광역시상인회관4층
+                            <br class="dis_block" />
+                            재단법인 대구전통시장진흥재단
+                        </p>
+                        <div class="fm_ico">
+                            <a href="">
+                                <i class="icon_ft_talk"></i>
+                            </a>
+                            <a href="">
+                                <i class="icon_ft_fb"></i>
+                            </a>
+                            <a href="">
+                                <i class="icon_ft_blog"></i>
+                            </a>
+                            <a href="">
+                                <i class="icon_ft_yt"></i>
+                            </a>
+                        </div>
+                        <p>
+                            Seomun Night Market Ⓒ2016 Daegu traditional Market
+                            Support Agency.
+                            <br class="dis_block" />All Rights Reserved
+                        </p>
+                    </div>
+                    <div class="f_ico dis_none">
+                        <a href="">
+                            <i class="icon_ft_talk"></i>
+                        </a>
+                        <a href="">
+                            <i class="icon_ft_fb"></i>
+                        </a>
+                        <a href="">
+                            <i class="icon_ft_blog"></i>
+                        </a>
+                        <a href="">
+                            <i class="icon_ft_yt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
