@@ -37,4 +37,8 @@ router.get("/", (req,res) => {
         res.render("notice_write.html"); 
     })
 
+    router.get("/join", (req,res) => {
+        res.render("join.html");
+    })
+
     module.exports = router;
