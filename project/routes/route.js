@@ -28,7 +28,6 @@ router.get("/", (req,res) => {
 
     router.get("/login", (req,res) => {
         res.render("login"); 
-        router.locals.styles = 1;
     })
 
     router.get("/view", (req,res) => {
@@ -41,7 +40,6 @@ router.get("/", (req,res) => {
 
     router.get("/join", (req,res) => {
         res.render("join");
-        router.locals.styles = 1;
     })
 
     module.exports = router;

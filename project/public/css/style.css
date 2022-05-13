@@ -427,7 +427,6 @@ main {
     display: inline-block;
     width: 1rem;
     height: 1rem;
-    border-left: 1px solid #adb5bd;
     background-image: url(../img/arrow03_r.png);
     background-position: right center;
     background-size: 15px auto;
@@ -511,7 +510,7 @@ tbody a:hover {
     text-align: left;
 }
 
-.badge {
+.noti_badge {
     display: inline-block;
     color: #fff;
     background-color: #111987;
@@ -726,14 +725,14 @@ tbody a:hover {
     margin: auto;
 }
 
-.card {
+.main_card {
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin-left: -5px;
 }
 
-.card > li {
+.main_card > li {
     position: relative;
     width: calc(25% - 10px);
     margin: 0 5px;
@@ -741,10 +740,10 @@ tbody a:hover {
     transition: transform 0.3s;
 }
 
-.card > li:hover {
+.main_card > li:hover {
     transform: translate(0, -15px);
 }
-.card a::before {
+.main_card a::before {
     content: "";
     display: block;
     width: 100%;
@@ -755,11 +754,11 @@ tbody a:hover {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-.card img {
+.main_card img {
     width: 100%;
 }
 
-.card p {
+.main_card p {
     position: absolute;
     top: 30px;
     left: 2rem;
@@ -770,7 +769,7 @@ tbody a:hover {
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
 }
 
-.card span {
+.main_card span {
     position: absolute;
     top: 80px;
     left: 2rem;
@@ -1513,7 +1512,7 @@ tbody a:hover {
         width: 95%;
     }
 
-    .card {
+    .main_card {
         margin: auto;
     }
 
@@ -1631,7 +1630,7 @@ tbody a:hover {
         overflow-x: scroll;
     }
 
-    .card {
+    .main_card {
         width: 1000px;
         display: flex;
         justify-content: space-between;
@@ -1639,7 +1638,7 @@ tbody a:hover {
         margin: 30px;
     }
 
-    .card > li {
+    .main_card > li {
         position: relative;
         width: calc(25% - 10px);
         margin: 0 5px;
@@ -1816,7 +1815,7 @@ tbody a:hover {
         width: 100%;
         padding: 30px 0;
     }
-    .card > li:hover {
+    .main_card > li:hover {
         transform: translate(0, 0);
     }
     .notice h3 {

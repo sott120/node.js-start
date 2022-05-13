@@ -16,6 +16,7 @@ app.set('layout','layout');//폴더원하면 layout앞에 /해서 폴더생성
 app.set('layout extractScripts',true);
 
 
+
 // app.engine('html', require('ejs').renderFile);
 
 
