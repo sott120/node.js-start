@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" href="../css/reset.css" />
-        <link rel="stylesheet" href="../css/common.css" />
-        <link rel="stylesheet" href="../css/notice_write.css" />
+        <title>서문시장야시장</title>
+        <link rel="stylesheet" href="css/notice_write.css" />
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/common.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/login_join.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -15,6 +17,7 @@
             rel="stylesheet"
         />
     </head>
+
     <body>
         <header>
             <div class="inner">
@@ -39,81 +42,7 @@
                 </div>
             </div>
         </header>
-        <main>
-            <section>
-                <h2>공지사항 작성하기</h2>
-                <form action="">
-                    <table>
-                        <tr>
-                            <td><label>제목 :</label></td>
-                            <td><input type="text" id="noti_title" /></td>
-                        </tr>
-                        <tr>
-                            <td><label>이름 :</label></td>
-                            <td><input type="text" id="noti_name" /></td>
-                        </tr>
-                        <tr>
-                            <td><label>비밀번호 :</label></td>
-                            <td><input type="password" id="noti_pass" /></td>
-                        </tr>
-                        <tr>
-                            <td><label>날짜 :</label></td>
-                            <td>
-                                <input
-                                    type="text"
-                                    id="noti_date_1"
-                                    placeholder="YYYY"
-                                />년
-                                <select name="" id="noti_date_2">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                    <option value="">6</option>
-                                    <option value="">7</option>
-                                    <option value="">8</option>
-                                    <option value="">9</option>
-                                    <option value="">10</option>
-                                    <option value="">11</option>
-                                    <option value="">12</option></select
-                                >월
-                                <input
-                                    type="text"
-                                    id="noti_date_3"
-                                    placeholder="DD"
-                                />일
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>내용작성 :</td>
-                            <td>
-                                <textarea
-                                    cols="100"
-                                    rows="10"
-                                    id="noti_cont"
-                                ></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>첨부파일 :</td>
-                            <td>
-                                <input
-                                    type="button"
-                                    id="noti_file"
-                                    value="첨부"
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <input type="button" value="저장" />
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-            </section>
-        </main>
+        <main><%- body %></main>
         <footer>
             <div>
                 <div class="f_list">
@@ -128,9 +57,9 @@
                 <div class="f_cont">
                     <div class="f_logo">
                         <h2>
-                            <a href=""
-                                ><img src="../img/noimg_big2.png" alt=""
-                            /></a>
+                            <a href="">
+                                <img src="../img/noimg_big2.png" alt="" />
+                            </a>
                         </h2>
                     </div>
                     <div class="f_txt">
