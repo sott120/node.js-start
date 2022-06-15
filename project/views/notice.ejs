@@ -54,6 +54,23 @@
                 </tr>
             </thead>
             <tbody>
+                <% rows.forEach((row, index) => { %>
+                    <tr>
+                        <td class="dis_none">
+                            <span><%= row.id %></span>
+                        </td>
+                        <td class="txt_left">
+                            <a href=""><%= row.title %></a>
+                        </td>
+                        <td><%= row.name %></td>
+                        <td><%= row.date %></td>
+                        <td class="dis_none">
+                            <a href="" onclick="javascript:location.href ='/updateMemo?id=<%=row.id%>'">수정</a>
+                            <a href="" onclick="javascript:location.href ='/deleteMemo?id=<%=row.id%>'">삭제</a>
+                        </td>
+                    </tr>
+
+                <% }) %>
                 <tr>
                     <td class="dis_none">
                         <span class="noti_badge">공지</span>

@@ -1,27 +1,29 @@
 <section class="noti_write">
-    <% if(typeof err !== 'undefined'){ %> <% errs.forEach(()=>{ %>
-        <h3><%=err.param%> : <%=err.meg%></h3>
+    <h2>공지사항 수정하기</h2>
+    <% if(typeof errs !== "undefined") { %> <% errs.forEach((err)=>{%>
+        <h4 style="color: red"><%=err.param%> : <%=err.msg%></h4>
         <% }) %> <% } %>
-    <h2>공지사항 작성하기</h2>
-    <form method="POST" action="/notice_send">
+    <form method="POST" action="/notice_update">
         
         <table>
             <tr>
                 <td><label>제목 :</label></td>
-                <td><input type="text" id="title" name="title"/></td>
+                <td><input type="text" id="title" name="title"/><%=row.title%></td>
             </tr>
             <tr>
                 <td><label>이름 :</label></td>
-                <td><input type="text" id="name" name="name"/></td>
+                <td><input type="text" id="name" name="name"/><%=row.name%></td>
             </tr>
             <tr>
                 <td><label>비밀번호 :</label></td>
-                <td><input type="password" id="pw" name="pw"/></td>
+                <td><input type="password" id="pw" name="pw"/><%=row.pw%></td>
             </tr>
             <tr>
                 <td>내용작성 :</td>
                 <td>
-                    <textarea cols="100" rows="10" id="content" name="content"></textarea>
+                    <textarea cols="100" rows="10" id="content" name="content">
+                        <%=row.content%>
+                    </textarea>
                 </td>
             </tr>
             <tr>
