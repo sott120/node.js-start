@@ -13,47 +13,56 @@ router.get("/", (req,res) => {
     const db = require('./../db.js');
 
     
-    router.post('/notice_send',[check('content').isByteLength({ min: 1, max: 5000 })], //그냥 islength도 가능
+    router.post('/write',//[check('content').isLength({ min: 1, max: 5000 })], 그냥 islength도 가능
         function (req, res, next) {
             let errs = validationResult(req);
+            console.log(req.body);
+            console.log(req);
             console.log(errs); //콘솔 에러 출력하기
             if (errs['errors'].length > 0) {
                 //화면에 에러 출력하기
-                res.render('notice_write', { errs:errs['errors'] });
+                res.render('write', { errs:errs['errors'] });
             } else {
+                
                 let param = JSON.parse(JSON.stringify(req.body));
-                db.insertMemo(param['title'], param['name'], param['pw'], param['content'], () => {
+                let title = param['title'];
+                let name = param['myname'];
+                let pw = param['pw'];
+                let content = param['content'];
+                db.insertMemo(title, name, pw, content, () => {
                     res.redirect('/notice');
                 });
             }
         }
     );
 
-    router.get('/notice_update', (req, res) => {
+    router.get('/updateMemo', (req, res) => {
         let id = req.query.id;
         db.getMemoById(id, (row) => {
             if (typeof id === 'undefined' || row.length <= 0) {
                 res.status(404).json({ error: 'undefined memo' });
             } else {
-                res.render('notice_update', { row:row[0] });
+                res.render('updateMemo', { row:row[0] });
             }
         });
     });
     
-    router.post('/notice_update', [check('content').isByteLength({ min: 1, max: 5000 })], (req, res) => {
+    router.post('/updateMemo', [check('content').isByteLength({ min: 1, max: 5000 })], (req, res) => {
         let errs = validationResult(req);
         let param = JSON.parse(JSON.stringify(req.body));
         let id = param['id'];
+        let title = param['title'];
         let name = param['name'];
         let pw = param['pw'];
-        let title = param['title'];
         let content = param['content'];
         if (errs['errors'].length > 0) {
+            console.log('실패')
             db.getMemoById(id, (row) => {
-                res.render('notice_update', { row: row[0], errs: errs['errors'] });
+                res.render('updateMemo', { row: row[0], errs: errs['errors'] });
             });
         } else {
-            db.updateMemoById(id, content, name, pw, title, () => {
+            console.log('성공')
+            db.updateMemoById(id, title, name, pw, content, () => {
                 res.redirect('/notice');
             });
         }
@@ -101,8 +110,10 @@ router.get("/", (req,res) => {
         res.render("join");
     })
 
-    router.get("/update", (req,res) => {
-        res.render("notice_update");
-    })
+    // router.get("/update", (req,res) => {
+    //     res.render("notice_update");
+    // })
+
+    
 
     module.exports = router;

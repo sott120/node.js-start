@@ -1,10 +1,9 @@
 <section class="noti_write">
+    <h2>공지사항 작성하기</h2>
     <% if(typeof err !== 'undefined'){ %> <% errs.forEach(()=>{ %>
         <h3><%=err.param%> : <%=err.meg%></h3>
         <% }) %> <% } %>
-    <h2>공지사항 작성하기</h2>
-    <form method="POST" action="/notice_send">
-        
+    <form method="POST" action="/write">
         <table>
             <tr>
                 <td><label>제목 :</label></td>
@@ -12,7 +11,7 @@
             </tr>
             <tr>
                 <td><label>이름 :</label></td>
-                <td><input type="text" id="name" name="name"/></td>
+                <td><input type="text" id="myname" name="myname"/></td>
             </tr>
             <tr>
                 <td><label>비밀번호 :</label></td>
@@ -32,7 +31,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="submit"  value="저장" />
+                    <input type="submit" value="저장" />
                 </td>
             </tr>
         </table>
