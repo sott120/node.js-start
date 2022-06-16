@@ -34,7 +34,7 @@ function getMemoById(id, callback) {
 
 //리스트를 수정하고 싶을 때 id값이 일치하는 부분을 수정하는 함수
 function updateMemoById(id, title, name, pw, content, callback) {
-    connection.query(`UPDATE notice set title = '${title}', name = '${name}', pw = '${pw}', content = '${content}' where id= ${id}`, (err, result) => {
+    connection.query(`UPDATE notice set title = '${title}', name = '${name}', pw = '${pw}', content = '${content}' WHERE id = ${id} `, (err, result) => {
         if (err) throw err;
         callback();
     });

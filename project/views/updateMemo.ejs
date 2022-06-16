@@ -6,16 +6,20 @@
     <form method="POST" action="/updateMemo">
         <table>
             <tr>
+                <td><label>번호 :</label></td>
+                <td><input type="text" id="title" name="id" value="<%=row.id%>"></td>
+            </tr>
+            <tr>
                 <td><label>제목 :</label></td>
-                <td><input type="text" id="title" name="title"/><%=row.title%></td>
+                <td><input type="text" id="title" name="title" value="<%=row.title%>"></td>
             </tr>
             <tr>
                 <td><label>이름 :</label></td>
-                <td><input type="text" id="name" name="name"/><%=row.name%></td>
+                <td><input type="text" id="name" name="name" value="<%=row.name%>"/></td>
             </tr>
             <tr>
                 <td><label>비밀번호 :</label></td>
-                <td><input type="password" id="pw" name="pw"/><%=row.pw%></td>
+                <td><input type="text" id="pw" name="pw" value="<%=row.pw%>"/></td>
             </tr>
             <tr>
                 <td>내용작성 :</td>

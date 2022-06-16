@@ -13,17 +13,14 @@ router.get("/", (req,res) => {
     const db = require('./../db.js');
 
     
-    router.post('/write',//[check('content').isLength({ min: 1, max: 5000 })], 그냥 islength도 가능
+    router.post('/write',[check('content').isByteLength({ min: 1, max: 5000 })], //그냥 islength도 가능
         function (req, res, next) {
             let errs = validationResult(req);
-            console.log(req.body);
-            console.log(req);
             console.log(errs); //콘솔 에러 출력하기
             if (errs['errors'].length > 0) {
                 //화면에 에러 출력하기
                 res.render('write', { errs:errs['errors'] });
             } else {
-                
                 let param = JSON.parse(JSON.stringify(req.body));
                 let title = param['title'];
                 let name = param['myname'];
@@ -50,18 +47,18 @@ router.get("/", (req,res) => {
     router.post('/updateMemo', [check('content').isByteLength({ min: 1, max: 5000 })], (req, res) => {
         let errs = validationResult(req);
         let param = JSON.parse(JSON.stringify(req.body));
+        console.log(req.body);
         let id = param['id'];
+        console.log(id);
         let title = param['title'];
         let name = param['name'];
         let pw = param['pw'];
         let content = param['content'];
         if (errs['errors'].length > 0) {
-            console.log('실패')
             db.getMemoById(id, (row) => {
                 res.render('updateMemo', { row: row[0], errs: errs['errors'] });
             });
         } else {
-            console.log('성공')
             db.updateMemoById(id, title, name, pw, content, () => {
                 res.redirect('/notice');
             });
@@ -98,6 +95,18 @@ router.get("/", (req,res) => {
         res.render("login"); 
     })
 
+    router.get("/notice_view_db", (req,res) => {
+        let id = req.query.id;
+        db.getMemoById(id, (row) => {
+            if (typeof id === 'undefined' || row.length <= 0) {
+                res.status(404).json({ error: 'undefined memo' });
+            } else {
+                res.render('notice_view_db', { row:row[0] });
+            }
+        });
+    })
+
+
     router.get("/view", (req,res) => {
         res.render("notice_view"); 
     })
@@ -110,6 +119,8 @@ router.get("/", (req,res) => {
         res.render("join");
     })
 
+
+    
     // router.get("/update", (req,res) => {
     //     res.render("notice_update");
     // })

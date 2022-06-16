@@ -9,12 +9,12 @@ var path = require('path');
 
 
 const homes =require('./routes/route.js');
-app.use('/', homes); //미들웨어 등록
 app.use(expressLayouts);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(logger('dev'));
+app.use('/', homes);
 
 app.set('views', __dirname + "/views");//html파일을 위한 경로설정
 app.set('view engine', 'ejs');
