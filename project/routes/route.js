@@ -95,7 +95,7 @@ router.get("/", (req,res) => {
         res.render("login"); 
     })
 
-    router.get("/notice_view_db", (req,res) => {
+    router.get("/notice_view", (req,res) => {
         let id = req.query.id;
         db.getMemoById(id, (row) => {
             if (typeof id === 'undefined' || row.length <= 0) {

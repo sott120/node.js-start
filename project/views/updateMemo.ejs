@@ -5,10 +5,7 @@
         <% }) %> <% } %>
     <form method="POST" action="/updateMemo">
         <table>
-            <tr>
-                <td><label>번호 :</label></td>
-                <td><input type="text" id="title" name="id" value="<%=row.id%>"></td>
-            </tr>
+            <input type="hidden" id="title" name="id" value="<%=row.id%>">
             <tr>
                 <td><label>제목 :</label></td>
                 <td><input type="text" id="title" name="title" value="<%=row.title%>"></td>
@@ -24,9 +21,7 @@
             <tr>
                 <td>내용작성 :</td>
                 <td>
-                    <textarea cols="100" rows="10" id="content" name="content">
-                        <%=row.content%>
-                    </textarea>
+                    <textarea cols="100" rows="10" id="content" name="content"><%=row.content%></textarea>
                 </td>
             </tr>
             <tr>
@@ -37,7 +32,8 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="submit"  value="저장" />
+                    <input type="submit"  value="수정하기" />
+                    <a onclick="javascript:location.href ='/notice_view?id=<%=row.id%>'"><input type="button"  value="뒤로가기" /></a>
                 </td>
             </tr>
         </table>
