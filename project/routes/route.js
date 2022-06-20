@@ -97,6 +97,7 @@ router.get("/", (req,res) => {
 
     router.get("/notice_view", (req,res) => {
         let id = req.query.id;
+        db.countViews(id);
         db.getMemoById(id, (row) => {
             if (typeof id === 'undefined' || row.length <= 0) {
                 res.status(404).json({ error: 'undefined memo' });

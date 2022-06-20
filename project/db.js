@@ -32,6 +32,11 @@ function getMemoById(id, callback) {
     });
 }
 
+//게시글을 클릭할 때마다 조회수가 올라가는 함수
+function countViews(id){
+    connection.query(`UPDATE notice SET views = views+ 1 WHERE ID = ${id}`);
+}
+
 //리스트를 수정하고 싶을 때 id값이 일치하는 부분을 수정하는 함수
 function updateMemoById(id, title, name, pw, content, callback) {
     connection.query(`UPDATE notice set title = '${title}', name = '${name}', pw = '${pw}', content = '${content}' WHERE id = ${id} `, (err, result) => {
@@ -48,10 +53,19 @@ function deleteMemoById(id, callback) {
     });
 }
 
+//id값을 초기화 시키는 함수
+function resetId(){
+    connection.query(`ALTER TABLE notice AUTO_INCREMENT=1`);
+    connection.query(`SET @COUNT = 0`);
+    connection.query(`UPDATE notice SET id = @COUNT:=@COUNT+1`);
+}
+
 module.exports = {
     getAllMemos,
     insertMemo,
     getMemoById,
+    countViews,
     updateMemoById,
-    deleteMemoById
+    deleteMemoById,
+    resetId
 };
