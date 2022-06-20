@@ -85,11 +85,11 @@ router.get("/", (req,res) => {
     })
 
     router.get("/notice", (req,res) => {
-        //res.render("notice"); 
+        db.countAll();
         db.getAllMemos((rows) => {
             res.render('notice', { rows: rows });
         });
-    })
+    }) 
 
     router.get("/login", (req,res) => {
         res.render("login"); 

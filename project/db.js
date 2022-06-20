@@ -16,6 +16,12 @@ function getAllMemos(callback) {
     });
 }
 
+function countAll(){
+    connection.query('SELECT COUNT(*) FROM notice',(err, result) => {
+        console.log(result);
+    });
+}
+
 //리스트에 새로운 내용을 추가하는 함수
 function insertMemo(title, name, pw, content, callback) {
     connection.query(`INSERT INTO notice(title, name, pw, date, content) VALUES ('${title}','${name}','${pw}', NOW(), '${content}' )`, (err, result) => {
@@ -53,19 +59,12 @@ function deleteMemoById(id, callback) {
     });
 }
 
-//id값을 초기화 시키는 함수
-function resetId(){
-    connection.query(`ALTER TABLE notice AUTO_INCREMENT=1`);
-    connection.query(`SET @COUNT = 0`);
-    connection.query(`UPDATE notice SET id = @COUNT:=@COUNT+1`);
-}
-
 module.exports = {
     getAllMemos,
+    countAll,
     insertMemo,
     getMemoById,
     countViews,
     updateMemoById,
     deleteMemoById,
-    resetId
 };
