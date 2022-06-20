@@ -16,9 +16,9 @@ function getAllMemos(callback) {
     });
 }
 
-function countAll(){
+function countAll(callback){
     connection.query('SELECT COUNT(*) FROM notice',(err, result) => {
-        console.log(result);
+        callback(result);
     });
 }
 

@@ -85,7 +85,9 @@ router.get("/", (req,res) => {
     })
 
     router.get("/notice", (req,res) => {
-        db.countAll();
+        db.countAll((result)=>{
+            let count = Object.entries(result[0])[0][1];
+        })
         db.getAllMemos((rows) => {
             res.render('notice', { rows: rows });
         });
