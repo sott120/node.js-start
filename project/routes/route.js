@@ -33,13 +33,13 @@ router.get("/", (req,res) => {
         }
     );
 
-    router.get('/updateMemo', (req, res) => {
+    router.get('/notice_update', (req, res) => {
         let id = req.query.id;
         db.getMemoById(id, (row) => {
             if (typeof id === 'undefined' || row.length <= 0) {
                 res.status(404).json({ error: 'undefined memo' });
             } else {
-                res.render('updateMemo', { row:row[0] });
+                res.render('notice_update', { row:row[0] });
             }
         });
     });
@@ -56,7 +56,7 @@ router.get("/", (req,res) => {
         let content = param['content'];
         if (errs['errors'].length > 0) {
             db.getMemoById(id, (row) => {
-                res.render('updateMemo', { row: row[0], errs: errs['errors'] });
+                res.render('notice_update', { row: row[0], errs: errs['errors'] });
             });
         } else {
             db.updateMemoById(id, title, name, pw, content, () => {
@@ -65,7 +65,7 @@ router.get("/", (req,res) => {
         }
     });
     
-    router.get('/deleteMemo', (req, res) => {
+    router.get('/notice_delete', (req, res) => {
         let id = req.query.id;
         db.deleteMemoById(id, () => {
             res.redirect('/notice');

@@ -30,7 +30,7 @@
         </div>
         <h5>
             총
-            <span class="h_span">87</span>
+            <span class="h_span"></span>
             개의 글이 있습니다.
         </h5>
     </article>
@@ -65,8 +65,8 @@
                         <td><%= row.name %></td>
                         <td><%= row.date %></td>
                         <td class="dis_none">
-                            <a  onclick="javascript:location.href ='/updateMemo?id=<%=row.id%>'">수정</a>
-                            <a onclick="javascript:location.href ='/deleteMemo?id=<%=row.id%>'">삭제</a>
+                            <a  onclick="javascript:location.href ='/notice_update?id=<%=row.id%>'">수정</a>
+                            <a onclick="javascript:location.href ='/notice_delete?id=<%=row.id%>'">삭제</a>
                         </td>
                     </tr>
 
