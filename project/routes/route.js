@@ -85,11 +85,10 @@ router.get("/", (req,res) => {
     })
 
     router.get("/notice", (req,res) => {
-        db.countAll((result)=>{
-            let count = Object.entries(result[0])[0][1];
-        })
-        db.getAllMemos((rows) => {
-            res.render('notice', { rows: rows });
+        db.countAll((count)=>{ //리스트 갯수 체크
+            db.getAllMemos((rows) => {
+                res.render('notice', { rows: rows, count : count });
+            });
         });
     }) 
 
@@ -99,7 +98,7 @@ router.get("/", (req,res) => {
 
     router.get("/notice_view", (req,res) => {
         let id = req.query.id;
-        db.countViews(id);
+        db.countViews(id); //조회수 추가
         db.getMemoById(id, (row) => {
             if (typeof id === 'undefined' || row.length <= 0) {
                 res.status(404).json({ error: 'undefined memo' });

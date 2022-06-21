@@ -16,9 +16,12 @@ function getAllMemos(callback) {
     });
 }
 
+//리스트 갯수를 카운트하는 함수
 function countAll(callback){
     connection.query('SELECT COUNT(*) FROM notice',(err, result) => {
-        callback(result);
+        let count = Object.values(result[0])[0];
+        if (err) throw err;
+        callback(count);
     });
 }
 
