@@ -477,7 +477,7 @@ main {
     border-top: 2px solid #495057;
 }
 
-thead th {
+.table_wrap thead th {
     border-bottom: 1px solid #adb5bd;
     background: #f5faff;
     font-weight: 600;
@@ -486,24 +486,26 @@ thead th {
     padding: 0.66rem 1rem;
 }
 
-tbody tr {
+.table_wrap tbody tr {
     border-bottom: 1px solid #ced4da;
     text-align: center;
 }
 
-tbody td {
+.table_wrap tbody td {
     padding: 1.5rem 1rem;
 }
 
-tbody span {
+.table_wrap tbody span {
     font-size: 1rem;
 }
 
-tbody a {
-    color: #212529;
+.table_wrap tbody a {
+    cursor: pointer;
+    color: #212529 !important;
 }
-tbody a:hover {
-    text-decoration: underline;
+.table_wrap tbody a:hover {
+    text-decoration: underline !important;
+    color: #0a58ca !important;
 }
 
 .txt_left {
@@ -1830,23 +1832,23 @@ tbody a:hover {
         width: 100%;
     }
 
-    tbody tr {
+    .table_wrap tbody tr {
         display: block;
         padding: 20px 0;
     }
 
-    tbody td {
+    .table_wrap tbody td {
         display: block;
         padding: 0;
     }
 
-    tbody tr > * {
+    .table_wrap tbody tr > * {
         border: none;
         white-space: normal;
         text-align: left;
     }
 
-    tbody td {
+    .table_wrap tbody td {
         color: #495057;
     }
 
